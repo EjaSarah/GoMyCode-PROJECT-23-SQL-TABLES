@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data definition language checkpoint</title>
+  </head>
+  <body>
+    You are asked to create the above given relational model using SQL language
+    and based on the different mentioned constraints. After creating tables,
+    write SQL commands to: Add a column Category (VARCHAR2(20)) to the PRODUCT
+    table. Add a column OrderDate (DATE) to the ORDERS table which have SYSDATE
+    as a default value.
+    <div>
+      CREATE TABLE product( product_id VARCHAR2(20) primary Key, product_name
+      VARCHAR2(20) NOT NULL, price NUMBER (price > 0));
+    </div>
+
+    <div>
+      CREATE TABLE customer( customer_id VARCHAR2(20) primary Key, customer_name
+      VARCHAR2(20) NOT NULL, customer_Tel NUMBER );
+    </div>
+
+    <div>
+      CREATE TABLE Orders( customer_id VARCHAR2(20) Foreign Key, Product_id
+      VARCHAR2(20) Foreign Key, Quantity NUMBER, Total_amount Number , FOREIGN
+      KEY (customer_id) REFERENCES Customer(customer_id), FOREIGN KEY
+      (product_id), REFERENCES product (product_id));
+    </div>
+
+    <div>ALTER TABLE product add category VARCHAR2(20);</div>
+
+    <div>ALTER TABLE orders add OrderDate DATE DEFAULT SYSDATE;</div>
+  </body>
+</html>
